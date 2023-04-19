@@ -3,6 +3,7 @@ import { useToken } from "../auth/useToken";
 import { useUser } from "../auth/useUser";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../constants";
 
 export const UserInfoPage = () => {
   const user = useUser();
@@ -40,7 +41,7 @@ export const UserInfoPage = () => {
   const saveChanges = async () => {
     try {
       const response = await axios.put(
-        `https://zer9tf-8080.csb.app/api/users/${id}`,
+        `${API_URL}users/${id}`,
         {
           favoriteFood,
           hairColor,
