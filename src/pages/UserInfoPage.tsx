@@ -40,7 +40,7 @@ export const UserInfoPage = () => {
   const saveChanges = async () => {
     try {
       const response = await axios.put(
-        `/api/users/${id}`,
+        `https://zer9tf-8080.csb.app/api/users/${id}`,
         {
           favoriteFood,
           hairColor,

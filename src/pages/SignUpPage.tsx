@@ -14,10 +14,13 @@ export const SignUpPage = () => {
   const onSignUpClicked = async () => {
     console.log("Sign clicked");
     try {
-      const response = await axios.post("/api/signup", {
-        email: emailValue,
-        password: passwordValue,
-      });
+      const response = await axios.post(
+        "https://zer9tf-8080.csb.app/api/signup",
+        {
+          email: emailValue,
+          password: passwordValue,
+        }
+      );
       const { token } = response.data;
       setToken(token);
       navigate("/");
