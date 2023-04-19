@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useToken } from "../auth/useToken";
+import { API_URL } from "../constants";
 
 export const LogInPage = () => {
   const [, setToken] = useToken();
@@ -14,13 +15,10 @@ export const LogInPage = () => {
     console.log("Login Clicked");
 
     try {
-      const response = await axios.post(
-        "https://zer9tf-8080.csb.app/api/login",
-        {
-          email: emailValue,
-          password: passwordValue,
-        }
-      );
+      const response = await axios.post(`${API_URL}login`, {
+        email: emailValue,
+        password: passwordValue,
+      });
       const { token } = response.data;
       setToken(token);
       navigate("/");

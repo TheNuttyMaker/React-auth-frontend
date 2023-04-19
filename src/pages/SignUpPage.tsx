@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useToken } from "../auth/useToken";
+import { API_URL } from "../constants";
 
 export const SignUpPage = () => {
   const [, setToken] = useToken();
@@ -14,7 +15,7 @@ export const SignUpPage = () => {
   const onSignUpClicked = async () => {
     console.log("Sign clicked");
     try {
-      const response = await axios.post("/api/signup", {
+      const response = await axios.post(`${API_URL}signup`, {
         email: emailValue,
         password: passwordValue,
       });
